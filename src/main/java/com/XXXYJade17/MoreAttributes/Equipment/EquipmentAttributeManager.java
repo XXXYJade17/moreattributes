@@ -16,7 +16,6 @@ public class EquipmentAttributeManager {
             }
         }
 
-
         // 主手物品（武器）
         ItemStack mainHand = player.getMainHandItem();
         if(mainHand.getItem() instanceof EquipmentAttributeProvider provider) {
