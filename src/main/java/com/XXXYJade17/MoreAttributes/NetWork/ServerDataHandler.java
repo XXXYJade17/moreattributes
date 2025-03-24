@@ -14,5 +14,6 @@ public class ServerDataHandler {
             });
         });
         event.getOriginal().invalidateCaps();
+
     }
 }
