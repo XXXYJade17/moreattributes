@@ -15,7 +15,6 @@ public class EquipmentAttributeManager {
                 provider.addArmorAttributes(player, attrs);
             }
         }
-
         // 主手物品（武器）
         ItemStack mainHand = player.getMainHandItem();
         if(mainHand.getItem() instanceof EquipmentAttributeProvider provider) {
