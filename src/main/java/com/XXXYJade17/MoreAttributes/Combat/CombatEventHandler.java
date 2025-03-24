@@ -1,7 +1,7 @@
 package com.XXXYJade17.MoreAttributes.Combat;
 
 import com.XXXYJade17.MoreAttributes.Attributes.PlayerAttributeSystem;
-import com.XXXYJade17.MoreAttributes.Attributes.PlayerAttributes;
+import com.XXXYJade17.MoreAttributes.Capability.PlayerAttributes;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;

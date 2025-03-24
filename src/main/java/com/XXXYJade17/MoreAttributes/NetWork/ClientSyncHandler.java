@@ -1,6 +1,6 @@
 package com.XXXYJade17.MoreAttributes.NetWork;
 
-import com.XXXYJade17.MoreAttributes.Attributes.PlayerAttributes;
+import com.XXXYJade17.MoreAttributes.Capability.PlayerAttributes;
 import net.minecraft.world.entity.player.Player;
 
 public class ClientSyncHandler {

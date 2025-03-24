@@ -1,5 +1,7 @@
-package com.XXXYJade17.MoreAttributes.Attributes;
+package com.XXXYJade17.MoreAttributes.Capability;
 
+import com.XXXYJade17.MoreAttributes.Attributes.IPlayerAttributes;
+import com.XXXYJade17.MoreAttributes.Attributes.PlayerAttributeSystem;
 import com.XXXYJade17.MoreAttributes.Equipment.EquipmentAttributeManager;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
