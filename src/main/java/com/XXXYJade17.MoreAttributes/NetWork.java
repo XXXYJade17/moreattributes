@@ -5,6 +5,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlerEvent;
 import net.neoforged.neoforge.network.registration.IPayloadRegistrar;
 
+//当游戏启动时，自动出发
 @Mod.EventBusSubscriber(modid = MoreAttributes.MODID,bus = Mod.EventBusSubscriber.Bus.MOD)
 public class NetWork {
     @SubscribeEvent

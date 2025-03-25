@@ -1,6 +1,7 @@
 package com.XXXYJade17.MoreAttributes;
 
 
+import com.XXXYJade17.MoreAttributes.EventListener.EventListeners;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.common.NeoForge;
