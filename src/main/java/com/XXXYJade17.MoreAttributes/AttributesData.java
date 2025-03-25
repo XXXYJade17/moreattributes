@@ -8,7 +8,7 @@ public record AttributesData(String attribute,float value) implements CustomPack
     public static final ResourceLocation ID = new ResourceLocation(MoreAttributes.MODID,"attributes_data");
 
     public AttributesData(final FriendlyByteBuf buf){
-        this(buf.readUtf(),buf.readInt());
+        this(buf.readUtf(),buf.readFloat());
     }
     @Override
     public void write(FriendlyByteBuf buf) {

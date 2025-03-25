@@ -6,10 +6,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.handling.PlayPayloadContext;
 
 public class ServerPayloadHandler {
-    private static final ServerPayloadHandler instanc = new ServerPayloadHandler();
+    private static final ServerPayloadHandler instance = new ServerPayloadHandler();
 
     public static ServerPayloadHandler getInstance() {
-        return instanc;
+        return instance;
     }
 
     public void handleAttributeData(final AttributesData data, final PlayPayloadContext context){
