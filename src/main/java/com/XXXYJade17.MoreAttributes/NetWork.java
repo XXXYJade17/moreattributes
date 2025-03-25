@@ -15,3 +15,4 @@ public class NetWork {
                         .server(ServerPayloadHandler.getInstance()::handleAttributeData));
     }
 }
+
