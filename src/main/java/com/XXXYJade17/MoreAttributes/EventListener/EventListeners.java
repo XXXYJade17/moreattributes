@@ -1,9 +1,7 @@
 package com.XXXYJade17.MoreAttributes.EventListener;
 
-import com.XXXYJade17.MoreAttributes.IPlayerAttributes;
-import com.XXXYJade17.MoreAttributes.ModCapabilities;
-import com.XXXYJade17.MoreAttributes.MoreAttributes;
-import com.XXXYJade17.MoreAttributes.PlayerAttributesProvider;
+import com.XXXYJade17.MoreAttributes.*;
+import com.XXXYJade17.MoreAttributes.Data.ClientPlayerAttributesData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,11 +12,11 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 @Mod.EventBusSubscriber(modid = MoreAttributes.MODID,value = Dist.CLIENT)
 public class EventListeners {
     private static EventListeners instance;
-    private final SimpleChannel channel;
     private EventListeners(){}
 
     public static EventListeners getInstance(){
@@ -38,8 +36,8 @@ public class EventListeners {
                     slot == EquipmentSlot.LEGS || slot == EquipmentSlot.FEET) {
 
                 if (newItemStack.getItem() instanceof PlayerAttributesProvider equip) {
-                    IPlayerAttributes attributes = equip.getInstance();
-                    sendAttributesToServer(player, attributes);
+                    PlayerAttributes attributes = equip.getAttributes();
+                    ClientPlayerAttributesData.getAttributes(attributes);
                 }
             }
         }
@@ -50,7 +48,6 @@ public class EventListeners {
         if(event.getEntity() instanceof ServerPlayer player){
             LivingEntity target = event.getSource().getEntity() instanceof LivingEntity ? (LivingEntity) event.getSource().getEntity() : null;
             if (target != null) {
-                // 获取玩家属性
                 IPlayerAttributes attributes = player.getCapability(ModCapabilities.PLAYER_ATTRIBUTES_HANDLER);
                 if (attributes != null) {
                     // 获取基础攻击和伤害倍率

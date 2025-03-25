@@ -1,5 +1,6 @@
 package com.XXXYJade17.MoreAttributes;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 
 public class PlayerAttributes implements IPlayerAttributes{
@@ -13,7 +14,6 @@ public class PlayerAttributes implements IPlayerAttributes{
 
     @Override
     public void recalculate(Player player) {
-        finalAttackDamage = attackDamage *( 1+ damageMultiplier);
     }
 
     @Override
@@ -56,7 +56,17 @@ public class PlayerAttributes implements IPlayerAttributes{
         this.critMultiplier = critMultiplier;
     }
 
-    public float getFinalAttackDamage() {
-        return finalAttackDamage;
+    public void saveNBTData(CompoundTag nbt) {
+        nbt.putFloat("attack_damage", attackDamage);
+        nbt.putFloat("damage_multiplier", damageMultiplier);
+        nbt.putFloat("crit_chance", critChance);
+        nbt.putFloat("crit_multiplier", critMultiplier);
+    }
+
+    public void loadNBTData(CompoundTag nbt) {
+        attackDamage = nbt.getFloat("attack_damage");
+        damageMultiplier = nbt.getFloat("damage_multiplier");
+        critChance = nbt.getFloat("crit_chance");
+        critMultiplier = nbt.getFloat("crit_multiplier");
     }
 }

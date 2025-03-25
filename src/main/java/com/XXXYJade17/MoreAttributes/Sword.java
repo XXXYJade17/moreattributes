@@ -4,10 +4,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 
 public class Sword extends Item implements PlayerAttributesProvider {
-    private final IPlayerAttributes attributes=this.getInstance();
+    private final IPlayerAttributes attributes=this.getAttributes();
 
     public Sword(){
         super(new Item.Properties());
+        setAttributes();
     }
 
     private void setAttributes(){

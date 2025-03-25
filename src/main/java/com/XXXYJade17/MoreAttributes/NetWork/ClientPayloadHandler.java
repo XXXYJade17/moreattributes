@@ -1,5 +1,6 @@
-package com.XXXYJade17.MoreAttributes;
+package com.XXXYJade17.MoreAttributes.NetWork;
 
+import com.XXXYJade17.MoreAttributes.AttributesData;
 import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.network.handling.PlayPayloadContext;
 
@@ -11,7 +12,7 @@ public class ClientPayloadHandler {
         return instance;
     }
 
-    public void handleAttributesData(final AttributesData data,final PlayPayloadContext context){
+    public void handleAttributesData(final AttributesData data, final PlayPayloadContext context){
         context.workHandler().submitAsync(()->{
             //数据处理
         }).exceptionally(e->{

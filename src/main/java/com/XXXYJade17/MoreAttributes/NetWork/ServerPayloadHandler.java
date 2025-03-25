@@ -1,5 +1,6 @@
-package com.XXXYJade17.MoreAttributes;
+package com.XXXYJade17.MoreAttributes.NetWork;
 
+import com.XXXYJade17.MoreAttributes.AttributesData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;

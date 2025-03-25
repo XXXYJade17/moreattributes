@@ -1,5 +1,7 @@
-package com.XXXYJade17.MoreAttributes;
+package com.XXXYJade17.MoreAttributes.NetWork;
 
+import com.XXXYJade17.MoreAttributes.AttributesData;
+import com.XXXYJade17.MoreAttributes.MoreAttributes;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlerEvent;

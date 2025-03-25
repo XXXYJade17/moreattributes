@@ -1,5 +1,6 @@
 package com.XXXYJade17.MoreAttributes;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 
 public interface IPlayerAttributes {
@@ -12,6 +13,8 @@ public interface IPlayerAttributes {
     float getCritMultiplier();
     void setCritMultiplier(float critMultiplier);
 
+    void saveNBTData(CompoundTag nbt);
+    void loadNBTData(CompoundTag nbt);
 
     void recalculate(Player player);
 }
