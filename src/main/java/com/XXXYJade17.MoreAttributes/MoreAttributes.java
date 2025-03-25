@@ -5,6 +5,7 @@ import com.XXXYJade17.MoreAttributes.EventListener.EventListeners;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
@@ -28,6 +29,7 @@ public class MoreAttributes {
         NeoForge.EVENT_BUS.addListener(this::registerCaps);
         ITEMS.register(bus);
     }
+    @SubscribeEvent
     private void registerCaps(RegisterCapabilitiesEvent event) {
         ModCapabilities.registerCapabilities(event);
     }
