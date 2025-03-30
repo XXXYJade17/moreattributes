@@ -3,27 +3,27 @@ package com.XXXYJade17.MoreAttributes.Capabilities.Damage;
 import net.minecraft.nbt.CompoundTag;
 
 public class Damage implements IDamage {
-    private float base_damage =0;
-    private float damage_multiplier=0;
+    private float damage =0f;
+    private float damage_multiplier=0f;
 
     public void saveData(CompoundTag nbt) {
-        nbt.putFloat("base_damage", base_damage);
+        nbt.putFloat("base_damage", damage);
         nbt.putFloat("damage_multiplier", damage_multiplier);
     }
 
     public void loadData(CompoundTag nbt) {
-        base_damage = nbt.getFloat("base_damage");
+        damage = nbt.getFloat("base_damage");
         damage_multiplier=nbt.getFloat("damage_multiplier");
     }
 
     @Override
-    public float getBaseDamage() {
-        return base_damage;
+    public float getDamage() {
+        return damage;
     }
 
     @Override
-    public void setBaseDamage(float num) {
-        this.base_damage = num;
+    public void setDamage(float num) {
+        damage = num;
     }
 
     @Override
@@ -33,6 +33,6 @@ public class Damage implements IDamage {
 
     @Override
     public void setDamageMultiplier(float num) {
-        this.damage_multiplier=num;
+        damage_multiplier=num;
     }
 }

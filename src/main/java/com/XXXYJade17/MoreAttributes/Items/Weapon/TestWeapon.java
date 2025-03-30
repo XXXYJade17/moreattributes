@@ -12,7 +12,8 @@ public class TestWeapon extends Item implements IMoreAttributes {
                 .stacksTo(1)
                 .fireResistant());
 
-        damage.setBaseDamage(10.0f);
+        damage = new Damage();
+        damage.setDamage(10.0f);
         damage.setDamageMultiplier(0.5f);
     }
 
