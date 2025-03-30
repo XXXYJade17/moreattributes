@@ -3,6 +3,7 @@ package com.XXXYJade17.MoreAttributes.Player;
 import com.XXXYJade17.MoreAttributes.Capabilities.Damage.Damage;
 import com.XXXYJade17.MoreAttributes.Capabilities.Inteface.IMoreAttributes;
 import com.XXXYJade17.MoreAttributes.MoreAttributes;
+import com.mojang.logging.LogUtils;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -11,11 +12,12 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
+import net.neoforged.neoforge.event.entity.living.LivingHurtEvent;
 
 @Mod.EventBusSubscriber(modid = MoreAttributes.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class AttackHandler {
     @SubscribeEvent
-    public static void onLivingAttack(LivingAttackEvent event) {
+    public static void onLivingAttack(LivingHurtEvent event) {
         float finalAttack=0f;
         if (event.getSource().getEntity() instanceof Player attacker) {
             EquipmentSlot[] slots = {
@@ -32,13 +34,14 @@ public class AttackHandler {
                     Damage damage= equip.getDamage();
                     if(damage!=null) {
                         finalAttack += PlayerAttributes.finalAttack(damage);
+                        LogUtils.getLogger().info("finalAttack: {}", finalAttack);
+
                     }
                 }
             }
-            LivingEntity target = event.getEntity();
             if(finalAttack>0) {
-                target.hurt(event.getSource(), finalAttack);
-                event.setCanceled(true);
+                event.setAmount(finalAttack);
+//                event.setCanceled(true);
             }
         }
     }
