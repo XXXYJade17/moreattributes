@@ -19,7 +19,7 @@ public class DamageProvider implements ICapabilityProvider<Player, Void, Damage>
 
     @Override
     public @Nullable Damage getCapability(Player o, Void unused) {
-        return damage;
+        return getDamage();
     }
 
     @Override

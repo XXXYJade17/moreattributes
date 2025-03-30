@@ -24,7 +24,7 @@ public class ServerPayloadHandler {
                 Optional.ofNullable(player.getCapability(ModCapabilities.DAMAGE_HANDLER))
                         .ifPresent(damage -> {
                             PacketDistributor.PLAYER.with(serverPlayer)
-                                    .send(new PlayerDamage(damage.getDamage(), damage.getDamageMultiplier()));
+                                    .send(new PlayerDamage(damage.getBaseDamage(), damage.getDamageMultiplier()));
                         });
             }
         });

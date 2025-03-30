@@ -1,5 +1,6 @@
 package com.XXXYJade17.MoreAttributes;
 
+import com.XXXYJade17.MoreAttributes.Items.ItemsRegistry;
 import com.XXXYJade17.MoreAttributes.Player.AttackHandler;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -11,6 +12,7 @@ public class MoreAttributes {
     public static final String MODID = "moreattributes";
 
     public MoreAttributes(IEventBus bus, ModContainer container) {
+        ItemsRegistry.register(bus);
         NeoForge.EVENT_BUS.register(AttackHandler.class);
     }
 }
