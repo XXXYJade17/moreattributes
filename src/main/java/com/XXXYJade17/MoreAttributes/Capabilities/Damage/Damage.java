@@ -22,8 +22,8 @@ public class Damage implements IDamage {
     }
 
     @Override
-    public void addDamage(float num) {
-        damage += num;
+    public void setDamage(float num) {
+        damage = num;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Damage implements IDamage {
     }
 
     @Override
-    public void addDamageMultiplier(float num) {
-        damage_multiplier+=num;
+    public void setDamageMultiplier(float num) {
+        damage_multiplier=num;
     }
 }
