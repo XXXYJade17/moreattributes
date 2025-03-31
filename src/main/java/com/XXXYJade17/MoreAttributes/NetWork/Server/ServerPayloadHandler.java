@@ -1,6 +1,7 @@
 package com.XXXYJade17.MoreAttributes.NetWork.Server;
 
 import com.XXXYJade17.MoreAttributes.Capabilities.ModCapabilities;
+import com.XXXYJade17.MoreAttributes.Data.ClientData.PlayerCrit;
 import com.XXXYJade17.MoreAttributes.Data.ClientData.PlayerDamage;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -25,6 +26,18 @@ public class ServerPayloadHandler {
                         .ifPresent(damage -> {
                             PacketDistributor.PLAYER.with(serverPlayer)
                                     .send(new PlayerDamage(damage.getDamage(), damage.getDamageMultiplier()));
+                        });
+            }
+        });
+    }
+
+    public void handleCritData(PlayerCrit pCrit, PlayPayloadContext context) {
+        context.player().ifPresent(player -> {
+            if (player instanceof ServerPlayer serverPlayer) {
+                Optional.ofNullable(player.getCapability(ModCapabilities.CRIT_HANDLER))
+                        .ifPresent(crit -> {
+                            PacketDistributor.PLAYER.with(serverPlayer)
+                                    .send(new PlayerCrit(crit.getCritRate(), crit.getCritMultiplier()));
                         });
             }
         });
