@@ -1,5 +1,6 @@
 package com.XXXYJade17.MoreAttributes.Capabilities;
 
+import com.XXXYJade17.MoreAttributes.Capabilities.Crit.CritProvider;
 import com.XXXYJade17.MoreAttributes.Capabilities.Damage.DamageProvider;
 import com.XXXYJade17.MoreAttributes.MoreAttributes;
 import net.minecraft.world.entity.EntityType;
@@ -14,5 +15,8 @@ public class Registry {
         event.registerEntity(ModCapabilities.DAMAGE_HANDLER,
                 EntityType.PLAYER,
                 new DamageProvider());
+        event.registerEntity(ModCapabilities.CRIT_HANDLER,
+                EntityType.PLAYER,
+                new CritProvider());
     }
 }

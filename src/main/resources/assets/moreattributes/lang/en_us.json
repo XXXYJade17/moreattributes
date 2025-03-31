@@ -1,5 +1,3 @@
 {
-  "itemGroup.moreattributes": "Example Mod Tab",
-  "block.moreattributes.example_block": "Example Block",
-  "item.moreattributes.example_item": "Example Item"
+  "item.moreattributes.test_weapon": "Test Weapon"
 }
