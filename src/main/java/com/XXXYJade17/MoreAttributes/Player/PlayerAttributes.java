@@ -38,7 +38,7 @@ public class PlayerAttributes {
     public static void removeAttributes(Player player){
         setArmor(player);
         setMaxHealth(player);
-        setAttackDamage(player);
+//        setAttackDamage(player);
         setArmorToughness(player);
     }
 

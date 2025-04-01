@@ -10,7 +10,7 @@ public class SimpleStick extends Item implements IMoreAttributes {
     private Damage damage;
     private Crit crit;
     private Defence defence;
-    private static final float ATTACK_RANGE = 3.0f;
+    private static final int ATTACK_RANGE = 4;
     public SimpleStick() {
         super(new Properties()
                 .stacksTo(1)
@@ -36,7 +36,7 @@ public class SimpleStick extends Item implements IMoreAttributes {
     }
 
     @Override
-    public double getAttackRange() {
+    public int getAttackRange() {
         return ATTACK_RANGE;
     }
 }

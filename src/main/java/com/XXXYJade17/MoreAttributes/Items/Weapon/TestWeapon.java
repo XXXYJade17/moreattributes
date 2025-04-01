@@ -10,7 +10,7 @@ public class TestWeapon extends Item implements IMoreAttributes {
     private Damage damage;
     private Crit crit;
     private Defence defence;
-    private static final float ATTACK_RANGE = 3.0f;
+    private static final int ATTACK_RANGE = 3;
 
     public TestWeapon() {
         super(new Properties()
@@ -42,7 +42,7 @@ public class TestWeapon extends Item implements IMoreAttributes {
     }
 
     @Override
-    public double getAttackRange() {
+    public int getAttackRange() {
         return ATTACK_RANGE;
     }
 }

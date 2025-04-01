@@ -16,7 +16,7 @@ public class TestHelmet extends ArmorItem implements IMoreAttributes {
     }
 
     @Override
-    public double getAttackRange() {
+    public int getAttackRange() {
         return 0;
     }
 

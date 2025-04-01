@@ -5,7 +5,7 @@ import com.XXXYJade17.MoreAttributes.Capabilities.Damage.Damage;
 import com.XXXYJade17.MoreAttributes.Capabilities.Defence.Defence;
 
 public interface IMoreAttributes {
-    double getAttackRange();
+    int getAttackRange();
     Damage getDamage();
     Crit getCrit();
     Defence getDefence();
