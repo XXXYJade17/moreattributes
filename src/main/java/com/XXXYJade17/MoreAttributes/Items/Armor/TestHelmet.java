@@ -10,9 +10,11 @@ public class TestHelmet extends ArmorItem implements IMoreAttributes {
     public Defence defence;
 
     public TestHelmet(){
-        super(new DefaultMaterial(), ArmorItem.Type.HELMET, new Properties());
+        super(new DefaultMaterial(), ArmorItem.Type.HELMET, new Properties()
+                .stacksTo(1)
+                .fireResistant());
         defence=new Defence();
-        defence.setDefence(10);
+        defence.setDefence(100);
     }
 
     @Override
@@ -32,6 +34,6 @@ public class TestHelmet extends ArmorItem implements IMoreAttributes {
 
     @Override
     public Defence getDefence() {
-        return null;
+        return defence;
     }
 }

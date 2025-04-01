@@ -43,23 +43,30 @@ public class AttackHandler {
             for (EquipmentSlot slot : slots) {
                 ItemStack itemStack = defender.getItemBySlot(slot);
                 if (itemStack.getItem() instanceof IMoreAttributes equip) {
+                    defender.sendSystemMessage(Component.literal("成功检测到装备"));
                     Defence pDefence = equip.getDefence();
-                    defence += pDefence.getDefence();
+                    if(pDefence!=null) {
+                        defence += pDefence.getDefence();
+                        defender.sendSystemMessage(Component.literal(""+pDefence.getDefence()));
+                    }
                 }
             }
-            defender.sendSystemMessage(Component.literal("被揍了"));
-            event.setAmount(PlayerAttributes.finalDamage(defence, originalDamage));
+            defender.sendSystemMessage(Component.literal("被揍了"+originalDamage));
+            float finalDamage=PlayerAttributes.finalDamage(defence, originalDamage);
+            defender.sendSystemMessage(Component.literal(""+finalDamage));
+            event.setAmount(finalDamage);
             MoreAttributes.getLOGGER().info("最终防御力:"+defence+"最终受到伤害:"+event.getAmount());
         }
     }
 
-     // 攻击
+
     @SubscribeEvent
     public static void onLivingAttack(LivingHurtEvent event) {
         float attack = 0f;
         float critRate=0f;
         float critMultiplier=0f;
         float defence=0f;
+        // 攻击
         if (event.getSource().getEntity() instanceof Player player) {
             for (EquipmentSlot slot : slots) {
                 ItemStack itemStack = player.getItemBySlot(slot);
