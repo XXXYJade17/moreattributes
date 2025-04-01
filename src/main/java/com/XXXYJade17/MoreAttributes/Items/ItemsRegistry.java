@@ -1,5 +1,6 @@
 package com.XXXYJade17.MoreAttributes.Items;
 
+import com.XXXYJade17.MoreAttributes.Items.Armor.TestHelmet;
 import com.XXXYJade17.MoreAttributes.Items.Weapon.SimpleStick;
 import com.XXXYJade17.MoreAttributes.Items.Weapon.TestWeapon;
 import com.XXXYJade17.MoreAttributes.MoreAttributes;
@@ -18,6 +19,8 @@ public class ItemsRegistry {
             ITEMS.register("test_weapon", TestWeapon::new);
     public static final Supplier<Item> Simple_Stick =
             ITEMS.register("simple_stick", SimpleStick::new);
+    public static final Supplier<Item> Test_Helmet =
+            ITEMS.register("test_helmet", TestHelmet::new);
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);
