@@ -2,6 +2,8 @@ package com.XXXYJade17.MoreAttributes.NetWork;
 
 import com.XXXYJade17.MoreAttributes.Data.ClientData.PlayerCrit;
 import com.XXXYJade17.MoreAttributes.Data.ClientData.PlayerDamage;
+import com.XXXYJade17.MoreAttributes.Data.ClientData.PlayerDefence;
+import com.XXXYJade17.MoreAttributes.Data.ClientData.PlayerLifeSteal;
 import com.XXXYJade17.MoreAttributes.MoreAttributes;
 import com.XXXYJade17.MoreAttributes.NetWork.Client.ClientPayloadHandler;
 import com.XXXYJade17.MoreAttributes.NetWork.Server.ServerPayloadHandler;
@@ -21,5 +23,11 @@ public class NetWork {
         registrar.play(PlayerCrit.ID, PlayerCrit::new, handler ->
                 handler.client(ClientPayloadHandler.getINSTANCE()::handelCritData)
                         .server(ServerPayloadHandler.getINSTANCE()::handleCritData));
+        registrar.play(PlayerLifeSteal.ID, PlayerLifeSteal::new, handler ->
+                handler.client(ClientPayloadHandler.getINSTANCE()::handleLifeStealData)
+                        .server(ServerPayloadHandler.getINSTANCE()::handleLifeStealData));
+        registrar.play(PlayerDefence.ID, PlayerDefence::new, handler ->
+                handler.client(ClientPayloadHandler.getINSTANCE()::handleDefenceData)
+                        .server(ServerPayloadHandler.getINSTANCE()::handleDefenceData));
     }
 }

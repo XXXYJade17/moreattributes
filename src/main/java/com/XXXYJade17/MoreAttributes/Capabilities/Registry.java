@@ -2,6 +2,8 @@ package com.XXXYJade17.MoreAttributes.Capabilities;
 
 import com.XXXYJade17.MoreAttributes.Capabilities.Crit.CritProvider;
 import com.XXXYJade17.MoreAttributes.Capabilities.Damage.DamageProvider;
+import com.XXXYJade17.MoreAttributes.Capabilities.LifeSteal.LifeSteal;
+import com.XXXYJade17.MoreAttributes.Capabilities.LifeSteal.LifeStealProvider;
 import com.XXXYJade17.MoreAttributes.MoreAttributes;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -18,5 +20,8 @@ public class Registry {
         event.registerEntity(ModCapabilities.CRIT_HANDLER,
                 EntityType.PLAYER,
                 new CritProvider());
+        event.registerEntity(ModCapabilities.LIFE_STEAL_HANDLER,
+                EntityType.PLAYER,
+                new LifeStealProvider());
     }
 }

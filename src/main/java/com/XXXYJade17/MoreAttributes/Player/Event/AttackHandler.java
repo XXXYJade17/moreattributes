@@ -43,17 +43,14 @@ public class AttackHandler {
             for (EquipmentSlot slot : slots) {
                 ItemStack itemStack = defender.getItemBySlot(slot);
                 if (itemStack.getItem() instanceof IMoreAttributes equip) {
-                    defender.sendSystemMessage(Component.literal("成功检测到装备"));
                     Defence pDefence = equip.getDefence();
                     if(pDefence!=null) {
                         defence += pDefence.getDefence();
-                        defender.sendSystemMessage(Component.literal(""+pDefence.getDefence()));
                     }
                 }
             }
-            defender.sendSystemMessage(Component.literal("被揍了"+originalDamage));
+            defender.sendSystemMessage(Component.literal("被揍了"));
             float finalDamage=PlayerAttributes.finalDamage(defence, originalDamage);
-            defender.sendSystemMessage(Component.literal(""+finalDamage));
             event.setAmount(finalDamage);
             MoreAttributes.getLOGGER().info("最终防御力:"+defence+"最终受到伤害:"+event.getAmount());
         }
