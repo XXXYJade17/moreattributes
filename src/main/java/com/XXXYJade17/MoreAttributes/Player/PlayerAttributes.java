@@ -24,6 +24,16 @@ public class PlayerAttributes {
         }
     }
 
+    public static boolean isLifeSteal(float lifeSteal){
+        Random random= new Random();
+        float randomValue= random.nextFloat();
+        if(randomValue<=lifeSteal){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public static float finalAttack(Damage damage){
         float playerDamage= damage.getDamage();
         float playerDamageMultiplier= damage.getDamageMultiplier();
@@ -38,7 +48,7 @@ public class PlayerAttributes {
     public static void removeAttributes(Player player){
         setArmor(player);
         setMaxHealth(player);
-//        setAttackDamage(player);
+        setAttackDamage(player);
         setArmorToughness(player);
     }
 
@@ -65,7 +75,7 @@ public class PlayerAttributes {
     }
 
     public static void setAttackDamage(Player player){
-        float AttackDamage = 0f;
+        float AttackDamage = 0.1f;
         // 攻击力
         UUID ATTACK_DAMAGE_MODIFIER_ID = UUID.fromString("11223344-1234-5678-1234-56789abcdef0");
         AttributeInstance attackDamageAttribute = player.getAttribute(Attributes.ATTACK_DAMAGE);

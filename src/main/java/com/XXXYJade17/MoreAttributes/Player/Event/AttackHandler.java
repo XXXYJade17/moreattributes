@@ -4,6 +4,7 @@ import com.XXXYJade17.MoreAttributes.Capabilities.Crit.Crit;
 import com.XXXYJade17.MoreAttributes.Capabilities.Damage.Damage;
 import com.XXXYJade17.MoreAttributes.Capabilities.Defence.Defence;
 import com.XXXYJade17.MoreAttributes.Capabilities.Inteface.IMoreAttributes;
+import com.XXXYJade17.MoreAttributes.Capabilities.LifeSteal.LifeSteal;
 import com.XXXYJade17.MoreAttributes.MoreAttributes;
 import com.XXXYJade17.MoreAttributes.Player.PlayerAttributes;
 import net.minecraft.network.chat.Component;
@@ -62,15 +63,16 @@ public class AttackHandler {
         float attack = 0f;
         float critRate=0f;
         float critMultiplier=0f;
-        float defence=0f;
-        // 攻击
+        float lifeStealRate=0f;
+        float lifeStealMultiplier=0f;
+        // 玩家攻击
         if (event.getSource().getEntity() instanceof Player player) {
             for (EquipmentSlot slot : slots) {
                 ItemStack itemStack = player.getItemBySlot(slot);
                 if (itemStack.getItem() instanceof IMoreAttributes equip) {
                     Damage pDamage = equip.getDamage();
                     Crit pCrit = equip.getCrit();
-                    Defence pDefence = equip.getDefence();
+                    LifeSteal pLifeSteal=equip.getLifeSteal();
                     if (pDamage != null) {
                         attack += PlayerAttributes.finalAttack(pDamage);
                     }
@@ -78,8 +80,9 @@ public class AttackHandler {
                         critRate += pCrit.getCritRate();
                         critMultiplier += pCrit.getCritMultiplier();
                     }
-                    if(pDefence!=null){
-                        defence+=pDefence.getDefence();
+                    if(pLifeSteal!=null){
+                        lifeStealRate+=pLifeSteal.getLifeStealRate();
+                        lifeStealMultiplier+=pLifeSteal.getLifeStealMultiplier();
                     }
                 }
             }
@@ -87,9 +90,17 @@ public class AttackHandler {
                 float criticalAttack=attack*(critMultiplier+2);
                 event.setAmount(criticalAttack);
                 player.sendSystemMessage(Component.literal("造成伤害:"+criticalAttack));
+                if(PlayerAttributes.isLifeSteal(lifeStealRate)){
+                    player.heal(lifeStealMultiplier*criticalAttack);
+                    player.sendSystemMessage(Component.literal("造成吸血:"+lifeStealMultiplier*criticalAttack));
+                }
             }else{
                 event.setAmount(attack);
                 player.sendSystemMessage(Component.literal("造成伤害:"+attack));
+                if(PlayerAttributes.isLifeSteal(lifeStealRate)){
+                    player.heal(lifeStealMultiplier*attack);
+                    player.sendSystemMessage(Component.literal("造成吸血:"+lifeStealMultiplier*attack));
+                }
             }
         }
     }

@@ -4,12 +4,11 @@ import com.XXXYJade17.MoreAttributes.Capabilities.Crit.Crit;
 import com.XXXYJade17.MoreAttributes.Capabilities.Damage.Damage;
 import com.XXXYJade17.MoreAttributes.Capabilities.Defence.Defence;
 import com.XXXYJade17.MoreAttributes.Capabilities.Inteface.IMoreAttributes;
+import com.XXXYJade17.MoreAttributes.Capabilities.LifeSteal.LifeSteal;
 import net.minecraft.world.item.Item;
 
 public class SimpleStick extends Item implements IMoreAttributes {
     private Damage damage;
-    private Crit crit;
-    private Defence defence;
     private static final int ATTACK_RANGE = 4;
     public SimpleStick() {
         super(new Properties()
@@ -27,12 +26,17 @@ public class SimpleStick extends Item implements IMoreAttributes {
 
     @Override
     public Crit getCrit() {
-        return crit;
+        return null;
     }
 
     @Override
     public Defence getDefence() {
-        return defence;
+        return null;
+    }
+
+    @Override
+    public LifeSteal getLifeSteal() {
+        return null;
     }
 
     @Override

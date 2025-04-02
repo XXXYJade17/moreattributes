@@ -30,7 +30,7 @@ public class PlayerEvents {
         AttributeInstance maxHealthAttribute = event.getEntity().getAttribute(Attributes.MAX_HEALTH);
         maxHealthAttribute.setBaseValue(10);
         event.getEntity().setHealth(10);
-//        AttributeInstance attackDamageAttribute = event.getEntity().getAttribute(Attributes.ATTACK_DAMAGE);
-//        attackDamageAttribute.setBaseValue(0);
+        AttributeInstance attackDamageAttribute = event.getEntity().getAttribute(Attributes.ATTACK_DAMAGE);
+        attackDamageAttribute.setBaseValue(0.1f);
     }
 }

@@ -4,6 +4,7 @@ import com.XXXYJade17.MoreAttributes.Capabilities.Crit.Crit;
 import com.XXXYJade17.MoreAttributes.Capabilities.Damage.Damage;
 import com.XXXYJade17.MoreAttributes.Capabilities.Defence.Defence;
 import com.XXXYJade17.MoreAttributes.Capabilities.Inteface.IMoreAttributes;
+import com.XXXYJade17.MoreAttributes.Capabilities.LifeSteal.LifeSteal;
 import net.minecraft.world.item.ArmorItem;
 
 public class TestHelmet extends ArmorItem implements IMoreAttributes {
@@ -35,5 +36,10 @@ public class TestHelmet extends ArmorItem implements IMoreAttributes {
     @Override
     public Defence getDefence() {
         return defence;
+    }
+
+    @Override
+    public LifeSteal getLifeSteal() {
+        return null;
     }
 }
