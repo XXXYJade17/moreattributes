@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 public record PlayerLifeSteal(float rate, float multiplier) implements CustomPacketPayload {
     public static final ResourceLocation ID = new ResourceLocation(MoreAttributes.MODID, "player_life_steal");
 
-    PlayerLifeSteal(FriendlyByteBuf buf){
+    public PlayerLifeSteal(FriendlyByteBuf buf){
         this(buf.readFloat(), buf.readFloat());
     }
 

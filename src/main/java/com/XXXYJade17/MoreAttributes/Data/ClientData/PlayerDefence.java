@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 public record PlayerDefence(float defence) implements CustomPacketPayload {
     public static final ResourceLocation ID = new ResourceLocation(MoreAttributes.MODID, "player_defence");
 
-    PlayerDefence(FriendlyByteBuf buf){
+    public PlayerDefence(FriendlyByteBuf buf){
         this(buf.readFloat());
     }
 

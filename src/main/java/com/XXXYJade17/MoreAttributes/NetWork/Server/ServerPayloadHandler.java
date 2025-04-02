@@ -58,7 +58,7 @@ public class ServerPayloadHandler {
         });
     }
 
-    public void handleDefenceData(PlayerLifeSteal pLifeSteal, PlayPayloadContext context) {
+    public void handleDefenceData(PlayerDefence pDefence, PlayPayloadContext context) {
         context.player().ifPresent(player -> {
             if (player instanceof ServerPlayer serverPlayer) {
                 Optional.ofNullable(player.getCapability(ModCapabilities.DEFENCE_HANDLER))
